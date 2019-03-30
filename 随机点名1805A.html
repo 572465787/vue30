@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				padding: 0;
+				margin: 0;
+			}
+			#box{
+				width: 80%;
+				height: 500px;
+				
+				margin: 50px auto;
+			}
+			h1{
+				font-size: 40px;
+				text-align: center;
+			}
+			#math{
+				width: 100%;
+				height: 350px;
+			}
+			#button{
+				width: 210px;
+				height: 45px;
+				margin: 0 auto;
+			}
+			button{
+				width: 100px;
+				height: 45px;
+				background: red;
+				color: white;
+			}
+			#math p{
+				width: 120px;
+				height: 50px;
+				background: pink;
+				border-radius: 8px;
+				float: left;
+				margin: 20px;
+				text-align: center;
+				line-height: 50px;
+				font-size: 20px;
+			}
+		</style> 
+	</head>
+	<body>
+		<div id="box">
+			<h1 id="h1">1805A</h1>
+
+			<div id="math"></div>
+
+			<div id="button">
+				<button id="btn1">开始</button>
+				<button id="btn2">结束</button>
+			</div>
+		</div>
+		<script type="text/javascript">
+			//获取元素
+			var box=document.getElementById("math");
+			//随机数
+		   function ran(min,max){
+		   	return parseInt(Math.random()*(max-min+1)+min);
+		   }
+		  
+		   var arr=["刘炅杰","秦宝轶","范康文",
+			 "李佳玉","闫炜林","李伟伟","王世吉","仇涛","李杨杨","夏宇","雷晓鹏",
+			"张鹏飞","马世雷","王尧" ];
+
+		 
+		   var str="";
+		   for(var i=0;i< arr.length;i++){
+		   		str+="<p>"+arr[i]+"</p>"
+		   }
+		   box.innerHTML=str;
+
+		   
+		   var ID;
+		   btn1.onclick=function(){
+		   	clearInterval(ID);
+			var op=document.getElementsByTagName("p");
+		   	ID=setInterval(function(){
+		   		var y=ran(0,arr.length-1);
+		   		for(var i=0;i<op.length;i++){
+		   			op[i].style.background="pink";
+		   			if(i==y){
+		   				op[i].style.background="red";
+		   			}
+		   		}
+		   	},100)
+		   }
+
+
+		   //点击结束
+		   btn2.onclick=function(){
+		   	clearInterval(ID)
+		   }
+		</script>
+	</body>
+</html>
